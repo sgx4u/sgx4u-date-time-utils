@@ -16,7 +16,7 @@ const Demo = () => {
 ## Reference
 
 ```ts
-formatDateTime({ date, format, useUTC, paddedValues }): string;
+formatDateTime({ date, format, useUTC }): string;
 ```
 
 ### Props
@@ -24,20 +24,27 @@ formatDateTime({ date, format, useUTC, paddedValues }): string;
 -   `date` The date to format. `Default` - new Date(). `Optional`
 -   `format` Format of the output. `Default` - 'HH:mm:ss | dd/MM/yyyy'. `Optional`
 -   `useUTC` Local value or UTC value. By default it will show local value. `Default` - false. `Optional`
--   `paddedValues` The values are padded or not with 0. `Default` - true. `Optional`
 -   All the props are optional, so the function can be called like `formatDateTime()`.
 
 ### Formats
 
--   `hh` - Hour 12h (01-12)
--   `HH` - Hour 24h (00-23)
--   `mm` - Minute (00-59)
--   `ss` - Second (00-59)
--   `SSS` - Millisecond (000-999)
--   `EEE` - Day in week short (Sun-Sat)
--   `EEEE` - Day in week full (Sunday-Saturday)
--   `dd` - Date in month (01-31)
--   `MM` - Month (01-12)
+-   `h` - Hour 12h (1-12)
+-   `hh` - Hour 12h with leading 0 (01-12)
+-   `H` - Hour 24h (0-23)
+-   `HH` - Hour 24h with leading 0 (00-23)
+-   `m` - Minute (0-59)
+-   `mm` - Minute with leading 0 (00-59)
+-   `s` - Second (0-59)
+-   `ss` - Second with leading 0 (00-59)
+-   `S` - Millisecond (0-999)
+-   `SS` - Millisecond with 2 digits minimum (00-999)
+-   `SSS` - Millisecond with 3 digits minimum (000-999)
+-   `EEE` - Day short (Sun-Sat)
+-   `EEEE` - Day full (Sunday-Saturday)
+-   `d` - Date (1-31)
+-   `dd` - Date with leading 0 (01-31)
+-   `M` - Month (1-12)
+-   `MM` - Month with leading 0 (01-12)
 -   `MMM` - Month short (Jan-Dec)
 -   `MMMM` - Month full (January-December)
 -   `yy` - Year short (00-99)

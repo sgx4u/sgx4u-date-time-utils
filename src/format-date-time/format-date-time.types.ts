@@ -17,7 +17,7 @@ export type FormatDateTimePropsType = {
 	 * @type string
 	 * @default 'HH:mm:ss | dd/MM/yyyy'
 	 * @optional
-	 * @format 'hh', 'HH', 'mm', 'ss', 'SSS', 'EEE', 'EEEE', 'dd', 'MM', 'MMM', 'MMMM', 'yy', 'yyyy', 'aa', 'full'.
+	 * @format 'h', 'hh', 'H', 'HH', 'm', 'mm', 's', 'ss', 'S', 'SS', 'SSS', 'EEE', 'EEEE', 'd', 'dd', 'M', 'MM', 'MMM', 'MMMM', 'yy', 'yyyy', 'aa', 'full'.
 	 */
 	format?: string;
 
@@ -28,14 +28,6 @@ export type FormatDateTimePropsType = {
 	 * @optional
 	 */
 	useUTC?: boolean;
-
-	/**
-	 * @description By default the values are padded with 0, set this to false to disable padding
-	 * @type boolean
-	 * @default true
-	 * @optional
-	 */
-	paddedValues?: boolean;
 };
 
 export type DateGetterMethodType = Extract<keyof Date, `get${string}`>;

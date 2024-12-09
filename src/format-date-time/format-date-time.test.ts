@@ -29,37 +29,23 @@ describe('FormatDateTime utility function', () => {
 
 		const result2 = formatDateTime({
 			date,
-			format: 'hh:HH:mm:ss:SSS:EEE:EEEE:dd:MM:MMM:MMMM:yy:yyyy:aa',
+			format: 'h:hh:H:HH:m:mm:s:ss:S:SS:SSS:EEE:EEEE:d:dd:M:MM:MMM:MMMM:yy:yyyy:aa',
 			useUTC: true,
 		});
-		expect(result2).toBe('08:08:38:16:079:Mon:Monday:09:12:Dec:December:24:2024:AM');
+		expect(result2).toBe('8:08:8:08:38:38:16:16:79:79:079:Mon:Monday:9:09:12:12:Dec:December:24:2024:AM');
 
 		const result3 = formatDateTime({
 			date,
-			format: 'hh-HH-mm-ss-SSS-EEE-EEEE-dd-MM-MMM-MMMM-yy-yyyy-aa',
+			format: 'h-hh-H-HH-m-mm-s-ss-S-SS-SSS-EEE-EEEE-d-dd-M-MM-MMM-MMMM-yy-yyyy-aa',
 			useUTC: true,
 		});
-		expect(result3).toBe('08-08-38-16-079-Mon-Monday-09-12-Dec-December-24-2024-AM');
+		expect(result3).toBe('8-08-8-08-38-38-16-16-79-79-079-Mon-Monday-9-09-12-12-Dec-December-24-2024-AM');
 
 		const result4 = formatDateTime({
 			date,
-			format: 'hh HH mm ss SSS EEE EEEE dd MM MMM MMMM yy yyyy aa',
+			format: 'h hh H HH m mm s ss S SS SSS EEE EEEE d dd M MM MMM MMMM yy yyyy aa',
 			useUTC: true,
 		});
-		expect(result4).toBe('08 08 38 16 079 Mon Monday 09 12 Dec December 24 2024 AM');
-	});
-
-	// Test 4: Test padded values
-	test('Should pad values when paddedValues is true', () => {
-		const date = new Date(Date.UTC(2024, 11, 9, 8, 38, 16, 79));
-		const result = formatDateTime({ date, format: 'HH:mm:ss', useUTC: true });
-		expect(result).toBe('08:38:16');
-	});
-
-	// Test 5: Test non-padded values
-	test('Should not pad values when paddedValues is false', () => {
-		const date = new Date(Date.UTC(2024, 11, 9, 8, 38, 16, 79));
-		const result = formatDateTime({ date, format: 'HH:mm:ss', useUTC: true, paddedValues: false });
-		expect(result).toBe('8:38:16');
+		expect(result4).toBe('8 08 8 08 38 38 16 16 79 79 079 Mon Monday 9 09 12 12 Dec December 24 2024 AM');
 	});
 });
