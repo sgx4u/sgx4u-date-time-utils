@@ -6,7 +6,11 @@ import { DateGetterMethodOptionsType, FormatCharacterType, FormatDateTimePropsTy
 /**
  * @function
  * @description Format date or time to a specific format
- * @returns { string | Date } The formatted date, type: string | Date
+ * @param {Object} props { date, format, useUTC }
+ * @property date - The date to format, type: unknown
+ * @property format - The format of the date, type: string, default: 'HH:mm:ss | dd/MM/yyyy'
+ * @property useUTC - Use UTC date, type: boolean, default: false
+ * @returns { string } The formatted date, type: string
  */
 export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
 	const { date, format = 'HH:mm:ss | dd/MM/yyyy', useUTC = false } = props;

@@ -34,7 +34,7 @@
 
 -   [`formatDateTime`](./src/format-date-time/format-date-time.md) &dash; Format a date-time
 -   [`dateTimeDifference`](./src/date-time-difference/date-time-difference.md) &dash; Get difference between 2 date/time
--   [`indexToDay`, `indexToMonth`](./src/index-to-name/index-to-name.md) &dash; Get day from day/month from index
+-   [`indexToDay` `indexToMonth`](./src/index-to-name/index-to-name.md) &dash; Get day from day/month from index
 
 <br/>
 

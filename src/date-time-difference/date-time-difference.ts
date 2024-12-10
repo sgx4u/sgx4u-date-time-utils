@@ -8,15 +8,19 @@ import {
 
 export function dateTimeDifference(): string;
 
+/**
+ * @function
+ * @description Calculate the difference between two dates.
+ * @param {Object} props { timeFrom, timeTo, format }
+ * @property timeFrom - The starting date/time, type: unknown
+ * @property timeTo - The ending date/time, type: unknown
+ * @property format - The format of the difference, type: 'millisecond' | 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year' | 'full' | 'full-short-unit' | 'object' | 'object-total', default: 'full'
+ * @returns { string | number | object } The difference, type: string | number | object
+ */
 export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 	props: DateTimeDifferencePropsType<T>,
 ): DateTimeDifferenceReturnType<T>;
 
-/**
- * @function
- * @description Calculate the difference between two dates.
- * @returns { string | number | object } The difference, type: string | number | object
- */
 export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 	props: DateTimeDifferencePropsType<T> = {},
 ): DateTimeDifferenceReturnType<T> {
@@ -34,7 +38,7 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 	}
 
 	const totalMillisecond = Math.abs(calculateTimeTo - calculateTimeFrom);
-	const isNegativeValue = calculateTimeTo < calculateTimeFrom;
+	const multiplyValue = calculateTimeTo < calculateTimeFrom ? -1 : 1;
 
 	// Cache object to store calculated values
 	const totalDiffCache: Partial<{ [key in NumberFormatType]: number }> = {};
@@ -47,31 +51,31 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 		switch (type) {
 			// Millisecond
 			case 'millisecond':
-				value = totalMillisecond;
+				value = totalMillisecond * multiplyValue;
 				break;
 			// Second
 			case 'second':
-				value = totalMillisecond / 1000;
+				value = (totalMillisecond / 1000) * multiplyValue;
 				break;
 			// Minute
 			case 'minute':
-				value = totalMillisecond / (1000 * 60);
+				value = (totalMillisecond / (1000 * 60)) * multiplyValue;
 				break;
 			// Hour
 			case 'hour':
-				value = totalMillisecond / (1000 * 60 * 60);
+				value = (totalMillisecond / (1000 * 60 * 60)) * multiplyValue;
 				break;
 			// Day
 			case 'day':
-				value = totalMillisecond / (1000 * 60 * 60 * 24);
+				value = (totalMillisecond / (1000 * 60 * 60 * 24)) * multiplyValue;
 				break;
 			// Month
 			case 'month':
-				value = totalMillisecond / (1000 * 60 * 60 * 24 * 30);
+				value = (totalMillisecond / (1000 * 60 * 60 * 24 * 30)) * multiplyValue;
 				break;
 			// Year
 			case 'year':
-				value = totalMillisecond / TIME_CONSTANTS.YEAR_TO_MILLISECONDS;
+				value = (totalMillisecond / TIME_CONSTANTS.YEAR_TO_MILLISECONDS) * multiplyValue;
 				break;
 			// Default case
 			default:
@@ -113,20 +117,20 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 
 	if (format === 'full') {
 		const diff = getNetDiff();
-		const { year, month, day, hour, minute, second, millisecond } = diff;
+		const { millisecond, second, minute, hour, day, month, year } = diff;
 
 		if (year <= 0 && month <= 0 && day <= 0 && hour <= 0 && minute <= 0 && second <= 0 && millisecond <= 0) {
 			return 'Same Time' as DateTimeDifferenceReturnType<T>;
 		}
 
 		const result = `
-			${year > 0 ? `${year * (isNegativeValue ? -1 : 1)}year ` : ''}
-			${month > 0 ? `${month * (isNegativeValue ? -1 : 1)}month ` : ''}
-			${day > 0 ? `${day * (isNegativeValue ? -1 : 1)}day ` : ''}
-			${hour > 0 ? `${hour * (isNegativeValue ? -1 : 1)}hour ` : ''}
-			${minute > 0 ? `${minute * (isNegativeValue ? -1 : 1)}minute ` : ''}
-			${second > 0 ? `${second * (isNegativeValue ? -1 : 1)}second ` : ''}
-			${millisecond > 0 ? `${millisecond * (isNegativeValue ? -1 : 1)}millisecond` : ''}
+			${year > 0 ? `${year * multiplyValue}year ` : ''}
+			${month > 0 ? `${month * multiplyValue}month ` : ''}
+			${day > 0 ? `${day * multiplyValue}day ` : ''}
+			${hour > 0 ? `${hour * multiplyValue}hour ` : ''}
+			${minute > 0 ? `${minute * multiplyValue}minute ` : ''}
+			${second > 0 ? `${second * multiplyValue}second ` : ''}
+			${millisecond > 0 ? `${millisecond * multiplyValue}millisecond` : ''}
 		`;
 		return result.trim() as DateTimeDifferenceReturnType<T>;
 	}
@@ -135,18 +139,18 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 		const diff = getNetDiff();
 		const { year, month, day, hour, minute, second, millisecond } = diff;
 
-		if (year <= 0 && month <= 0 && day <= 0 && hour <= 0 && minute <= 0 && second <= 0 && millisecond <= 0) {
+		if (year === 0 && month === 0 && day === 0 && hour === 0 && minute === 0 && second === 0 && millisecond === 0) {
 			return 'Same Time' as DateTimeDifferenceReturnType<T>;
 		}
 
 		const result = `
-			${year > 0 ? `${year * (isNegativeValue ? -1 : 1)}yr ` : ''}
-			${month > 0 ? `${month * (isNegativeValue ? -1 : 1)}mo ` : ''}
-			${day > 0 ? `${day * (isNegativeValue ? -1 : 1)}day ` : ''}
-			${hour > 0 ? `${hour * (isNegativeValue ? -1 : 1)}hr ` : ''}
-			${minute > 0 ? `${minute * (isNegativeValue ? -1 : 1)}min ` : ''}
-			${second > 0 ? `${second * (isNegativeValue ? -1 : 1)}sec ` : ''}
-			${millisecond > 0 ? `${millisecond * (isNegativeValue ? -1 : 1)}msec` : ''}
+			${year > 0 ? `${year * multiplyValue}yr ` : ''}
+			${month > 0 ? `${month * multiplyValue}mo ` : ''}
+			${day > 0 ? `${day * multiplyValue}day ` : ''}
+			${hour > 0 ? `${hour * multiplyValue}hr ` : ''}
+			${minute > 0 ? `${minute * multiplyValue}min ` : ''}
+			${second > 0 ? `${second * multiplyValue}sec ` : ''}
+			${millisecond > 0 ? `${millisecond * multiplyValue}msec` : ''}
 		`;
 		return result.trim() as DateTimeDifferenceReturnType<T>;
 	}
@@ -156,25 +160,25 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 		const { year, month, day, hour, minute, second, millisecond } = diff;
 
 		return {
-			millisecond: millisecond * (isNegativeValue ? -1 : 1),
-			second: second * (isNegativeValue ? -1 : 1),
-			minute: minute * (isNegativeValue ? -1 : 1),
-			hour: hour * (isNegativeValue ? -1 : 1),
-			day: day * (isNegativeValue ? -1 : 1),
-			month: month * (isNegativeValue ? -1 : 1),
-			year: year * (isNegativeValue ? -1 : 1),
+			millisecond: millisecond * multiplyValue,
+			second: second * multiplyValue,
+			minute: minute * multiplyValue,
+			hour: hour * multiplyValue,
+			day: day * multiplyValue,
+			month: month * multiplyValue,
+			year: year * multiplyValue,
 		} as DateTimeDifferenceReturnType<T>;
 	}
 
 	if (format === 'object-total') {
 		return {
-			millisecond: totalMillisecond,
-			second: totalMillisecond / 1000,
-			minute: totalMillisecond / (1000 * 60),
-			hour: totalMillisecond / (1000 * 60 * 60),
-			day: totalMillisecond / (1000 * 60 * 60 * 24),
-			month: totalMillisecond / (1000 * 60 * 60 * 24 * 30),
-			year: totalMillisecond / (1000 * 60 * 60 * 24 * 30 * 12),
+			millisecond: totalMillisecond * multiplyValue,
+			second: (totalMillisecond / 1000) * multiplyValue,
+			minute: (totalMillisecond / (1000 * 60)) * multiplyValue,
+			hour: (totalMillisecond / (1000 * 60 * 60)) * multiplyValue,
+			day: (totalMillisecond / (1000 * 60 * 60 * 24)) * multiplyValue,
+			month: (totalMillisecond / (1000 * 60 * 60 * 24 * 30)) * multiplyValue,
+			year: (totalMillisecond / (1000 * 60 * 60 * 24 * 30 * 12)) * multiplyValue,
 		} as DateTimeDifferenceReturnType<T>;
 	}
 
