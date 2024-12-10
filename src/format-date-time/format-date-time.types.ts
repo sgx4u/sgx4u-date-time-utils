@@ -1,14 +1,14 @@
 /**
  * @type
  * @description Format date or time to a specific format
- * @returns {string | Date} The formatted date, type: string | Date
  */
 export type FormatDateTimePropsType = {
 	/**
-	 * @description The date to format
+	 * @description The date to format.
 	 * @type unknown
-	 * @default undefined
+	 * @default new Date()
 	 * @optional
+	 * @summary I have allowed unknown type here, because if the given data is not of a supported type, it will return Invalid Date. So you can use the function even if you are not sure about the data type and you will not have to deal with TypeScript error.
 	 */
 	date?: unknown;
 
@@ -29,6 +29,30 @@ export type FormatDateTimePropsType = {
 	 */
 	useUTC?: boolean;
 };
+
+export type FormatCharacterType =
+	| 'h'
+	| 'hh'
+	| 'H'
+	| 'HH'
+	| 'm'
+	| 'mm'
+	| 's'
+	| 'ss'
+	| 'S'
+	| 'SS'
+	| 'SSS'
+	| 'EEE'
+	| 'EEEE'
+	| 'd'
+	| 'dd'
+	| 'M'
+	| 'MM'
+	| 'MMM'
+	| 'MMMM'
+	| 'yy'
+	| 'yyyy'
+	| 'aa';
 
 export type DateGetterMethodType = Extract<keyof Date, `get${string}`>;
 
