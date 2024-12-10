@@ -32,7 +32,8 @@
 
 > ⚡Links to the documentations.
 
--   [`formatDateTime`](./src/format-date-time/format-date-time.md) &dash; Show a date in any format.
+-   [`formatDateTime`](./src/format-date-time/format-date-time.md) &dash; Format a date-time.
+-   [`dateTimeDifference`](./src/date-time-difference/date-time-difference.md) &dash; Get difference between 2 date/time.
 
 <br/>
 
