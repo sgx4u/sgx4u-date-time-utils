@@ -4,7 +4,7 @@
 
 ### Minor Release
 
--   Added function - `dateTimeDifference`
+-   Added function - `dateTimeDifference`, `indexToDay`, `indexToMonth`
 -   Optimized function - `formatDateTime`. Performance optimizations
 
 ## 2.0.0
