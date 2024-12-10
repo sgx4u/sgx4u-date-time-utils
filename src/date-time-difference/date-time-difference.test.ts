@@ -30,7 +30,7 @@ describe('FormatDateTime utility function', () => {
 				second: 0,
 				minute: 0,
 				hour: 0,
-				day: 6,
+				day: 1,
 				month: 0,
 				year: 1,
 			}),

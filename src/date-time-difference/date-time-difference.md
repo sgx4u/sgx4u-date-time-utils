@@ -45,8 +45,8 @@ dateTimeDifference({ timeFrom, timeTo, format }): string | number | object;
 
 ### Example
 
--   Date From: Mon Jan 01 2024 06:31:01 GMT+0530 (India Standard Time)
--   Date To: Wed Jan 01 2025 06:31:01 GMT+0530 (India Standard Time)
--   `Format`: 'day', `Result`:
--   `Format`: 'object', `Result`:
--   `Format`: 'object-total', `Result`:
+-   Date From: '2024-01-01T01:01:01.000Z'
+-   Date To: '2025-01-01T01:01:01.000Z'
+-   `Format`: 'day', `Result`: 366
+-   `Format`: 'object', `Result`: { millisecond: 0, second: 0, minute: 0, hour: 0, day: 1, month: 0, year: 1 }
+-   `Format`: 'object-total', `Result`: { millisecond: 31622400000, second: 31622400, minute: 527040, hour: 8784, day: 366, month: 12.2, year: 1.0166666666666666 }

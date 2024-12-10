@@ -1,3 +1,4 @@
+import { TIME_CONSTANTS } from '../constants/time.constants';
 import {
 	DateTimeDifferenceFormatType,
 	DateTimeDifferencePropsType,
@@ -70,7 +71,7 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 				break;
 			// Year
 			case 'year':
-				value = totalMillisecond / (1000 * 60 * 60 * 24 * 30 * 12);
+				value = totalMillisecond / TIME_CONSTANTS.YEAR_TO_MILLISECONDS;
 				break;
 			// Default case
 			default:
@@ -84,14 +85,15 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 
 	// Function to compute net difference
 	const getNetDiff = (): { [key in NumberFormatType]: number } => {
-		let second = Math.floor(totalMillisecond / 1000);
+		let millisecond = totalMillisecond % TIME_CONSTANTS.YEAR_TO_MILLISECONDS;
+		let second = Math.floor(millisecond / 1000);
 		let minute = Math.floor(second / 60);
 		let hour = Math.floor(minute / 60);
 		let day = Math.floor(hour / 24);
 		let month = Math.floor(day / 30);
-		const year = Math.floor(month / 12);
+		const year = Math.floor(totalMillisecond / TIME_CONSTANTS.YEAR_TO_MILLISECONDS);
 
-		const millisecondRemaining = totalMillisecond % 1000;
+		millisecond = millisecond % 1000;
 		second = second % 60;
 		minute = minute % 60;
 		hour = hour % 24;
@@ -99,7 +101,7 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 		month = month % 12;
 
 		return {
-			millisecond: millisecondRemaining,
+			millisecond,
 			second,
 			minute,
 			hour,
