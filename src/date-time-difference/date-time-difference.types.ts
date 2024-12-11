@@ -39,7 +39,7 @@ export type DateTimeDifferencePropsType<T> = {
 	 * @type string
 	 * @default 'full'
 	 * @optional
-	 * @format 'millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year', 'full', 'object', 'object-total'.
+	 * @format 'millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year', 'full', 'object', 'object-total'
 	 */
 	format?: T;
 };

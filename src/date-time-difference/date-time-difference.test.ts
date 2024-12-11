@@ -2,7 +2,7 @@ import { describe, expect, test } from '@jest/globals';
 
 import { dateTimeDifference } from './date-time-difference';
 
-describe('FormatDateTime utility function', () => {
+describe('dateTimeDifference utility function', () => {
 	// Test 1: Default format
 	test('Should return default formatted difference when no arguments are provided', () => {
 		const result1 = dateTimeDifference();

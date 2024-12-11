@@ -1,15 +1,15 @@
 import { padNumber } from '../utils/number.utils';
 import { getValueFromDate } from '../utils/date.utils';
 import { daysFull, daysShort, monthsFull, monthsShort } from '../data/date.data';
-import { DateGetterMethodOptionsType, FormatCharacterType, FormatDateTimePropsType } from './format-date-time.types';
+import { DateGetterMethodOptionsType, FormatOptionsType, FormatDateTimePropsType } from './format-date-time.types';
 
 /**
  * @function
- * @description Format date or time to a specific format
+ * @description Format date or time to a specific format.
  * @param {Object} props { date, format, useUTC }
- * @property date - The date to format, type: unknown
- * @property format - The format of the date, type: string, default: 'HH:mm:ss | dd/MM/yyyy'
- * @property useUTC - Use UTC date, type: boolean, default: false
+ * @property date - The date to format, type: unknown, default: new Date(), optional
+ * @property format - The format of the date, type: string, default: 'HH:mm:ss | dd/MM/yyyy', optional
+ * @property useUTC - Use UTC date, type: boolean, default: false, optional
  * @returns { string } The formatted date, type: string
  */
 export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
@@ -17,8 +17,6 @@ export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
 
 	const thisDate = !('date' in props) ? new Date() : date instanceof Date ? date : new Date(date as any);
 	if (isNaN(thisDate.getTime())) return 'Invalid Date';
-
-	if (format === 'full') return thisDate.toString();
 
 	// Utility function to get a value from date
 	const getValue = (method: DateGetterMethodOptionsType): number => {
@@ -29,10 +27,10 @@ export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
 	const getStringValue = (value: number): string => value.toString();
 
 	// Cache object to store calculated values
-	const formattedValueCache: Partial<{ [key in FormatCharacterType]: string }> = {};
+	const formattedValueCache: Partial<{ [key in FormatOptionsType]: string }> = {};
 
 	// Function to compute only necessary values
-	const getFormattedValue = (type: FormatCharacterType): string => {
+	const getFormattedValue = (type: FormatOptionsType): string => {
 		if (formattedValueCache[type] !== undefined) return formattedValueCache[type];
 		let value: string = '';
 
@@ -129,6 +127,38 @@ export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
 			case 'aa':
 				value = getValue('Hours') >= 12 ? 'PM' : 'AM';
 				break;
+			// full
+			case 'full':
+				value = thisDate.toString();
+				break;
+			// UTC
+			case 'UTC':
+				value = thisDate.toUTCString();
+				break;
+			// ISO
+			case 'ISO':
+				value = thisDate.toISOString();
+				break;
+			// dateString
+			case 'dateString':
+				value = thisDate.toDateString();
+				break;
+			// timeString
+			case 'timeString':
+				value = thisDate.toTimeString();
+				break;
+			// locale
+			case 'locale':
+				value = thisDate.toLocaleString();
+				break;
+			// localeDate
+			case 'localeDate':
+				value = thisDate.toLocaleDateString();
+				break;
+			// localeTime
+			case 'localeTime':
+				value = thisDate.toLocaleTimeString();
+				break;
 			// Default case
 			default:
 				value = '';
@@ -140,8 +170,8 @@ export const formatDateTime = (props: FormatDateTimePropsType = {}): string => {
 	};
 
 	const formattedDate = format.replace(
-		/\b(h|hh|H|HH|m|mm|s|ss|S|SS|SSS|EEE|EEEE|d|dd|M|MM|MMM|MMMM|yy|yyyy|aa)\b/g,
-		(match) => getFormattedValue(match as FormatCharacterType),
+		/\b(h|hh|H|HH|m|mm|s|ss|S|SS|SSS|EEE|EEEE|d|dd|M|MM|MMM|MMMM|yy|yyyy|aa|full|UTC|ISO|dateString|timeString|locale|localeDate|localeTime)\b/g,
+		(match) => getFormattedValue(match as FormatOptionsType),
 	);
 
 	return formattedDate;

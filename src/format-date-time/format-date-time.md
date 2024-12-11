@@ -21,9 +21,9 @@ formatDateTime({ date, format, useUTC }): string;
 
 ### Props
 
--   `date` The date to format. `Default` - new Date(). `Optional`
--   `format` Format of the output. `Default` - 'HH:mm:ss | dd/MM/yyyy'. `Optional`
--   `useUTC` Local value or UTC value. By default it will show local value. `Default` - false. `Optional`
+-   `date` The date to format, `type`: unknown `default` - new Date(). `optional`
+-   `format` Format of the output, `type`: string `default` - 'HH:mm:ss | dd/MM/yyyy'. `optional`
+-   `useUTC` Local value or UTC value. By default it will show local value. If the format provided is UTC then it will be same as useUTC = true, `type`: boolean, `default` - false. `optional`
 -   All the props are optional, so the function can be called like `formatDateTime()`.
 
 ### Formats
@@ -51,16 +51,23 @@ formatDateTime({ date, format, useUTC }): string;
 -   `yyyy` - Year full (0000-9999)
 -   `aa` - AM/PM
 -   `full` - Full date
+-   `UTC` - Default toUTCString
+-   `ISO` - Default toISOString
+-   `dateString` - Default toDateString
+-   `timeString` - Default toTimeString
+-   `locale` - Default toLocaleString
+-   `localeDate` - Default toLocaleDateString
+-   `localeTime` - Default toLocaleTimeString
 
 ### Example
 
 -   Date Input: Sat Jan 01 2050 13:14:15 GMT+0530 (India Standard Time)
--   `Format`: 'HH:mm:ss | dd/MM/yyyy', `Result`: 13:14:15 | 01/01/2050
--   `Format`: 'hh-mm-ss / dd-MMM-yy', `Result`: 01-14-15 / 01/Jan/50
--   `Format`: 'HH:mm:ss -- dd MMMM yyyy', `Result`: 13:14:15 -- 01 January 2050
+-   `format`: 'HH:mm:ss | dd/MM/yyyy', `result`: 13:14:15 | 01/01/2050
+-   `format`: 'hh-mm-ss / dd-MMM-yy', `result`: 01-14-15 / 01/Jan/50
+-   `format`: 'HH:mm:ss -- dd MMMM yyyy', `result`: 13:14:15 -- 01 January 2050
 
 ### Caution
 
 -   If there are any unknown characters then it will be shown as it is.
--   `Format`: 'HH:mm:ss:ABC ||| dd/MM/yyyy/XYZ', `Result`: 13:14:15:ABC ||| 01/01/2050/XYZ
+-   `format`: 'HH:mm:ss:ABC ||| dd/MM/yyyy/XYZ', `result`: 13:14:15:ABC ||| 01/01/2050/XYZ
 -   Invalid date output will be `Invalid Date`

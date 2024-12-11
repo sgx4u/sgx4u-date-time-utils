@@ -1,6 +1,6 @@
 /**
  * @type
- * @description Format date or time to a specific format
+ * @description Format date or time to a specific format.
  */
 export type FormatDateTimePropsType = {
 	/**
@@ -17,12 +17,12 @@ export type FormatDateTimePropsType = {
 	 * @type string
 	 * @default 'HH:mm:ss | dd/MM/yyyy'
 	 * @optional
-	 * @format 'h', 'hh', 'H', 'HH', 'm', 'mm', 's', 'ss', 'S', 'SS', 'SSS', 'EEE', 'EEEE', 'd', 'dd', 'M', 'MM', 'MMM', 'MMMM', 'yy', 'yyyy', 'aa', 'full'.
+	 * @format 'h', 'hh', 'H', 'HH', 'm', 'mm', 's', 'ss', 'S', 'SS', 'SSS', 'EEE', 'EEEE', 'd', 'dd', 'M', 'MM', 'MMM', 'MMMM', 'yy', 'yyyy', 'aa', 'full', 'UTC', 'ISO', 'dateString', 'timeString', 'locale', 'localeDate', 'localeTime'.
 	 */
 	format?: string;
 
 	/**
-	 * @description Format as UTC instead of local time
+	 * @description Format as UTC instead of local time.
 	 * @type boolean
 	 * @default false
 	 * @optional
@@ -30,7 +30,7 @@ export type FormatDateTimePropsType = {
 	useUTC?: boolean;
 };
 
-export type FormatCharacterType =
+export type FormatOptionsType =
 	| 'h'
 	| 'hh'
 	| 'H'
@@ -52,7 +52,15 @@ export type FormatCharacterType =
 	| 'MMMM'
 	| 'yy'
 	| 'yyyy'
-	| 'aa';
+	| 'aa'
+	| 'full'
+	| 'UTC'
+	| 'ISO'
+	| 'dateString'
+	| 'timeString'
+	| 'locale'
+	| 'localeDate'
+	| 'localeTime';
 
 export type DateGetterMethodType = Extract<keyof Date, `get${string}`>;
 

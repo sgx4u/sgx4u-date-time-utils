@@ -2,7 +2,7 @@ import { describe, expect, test } from '@jest/globals';
 
 import { formatDateTime } from './format-date-time';
 
-describe('FormatDateTime utility function', () => {
+describe('formatDateTime utility function', () => {
 	// Test 1: Default format
 	test('Should return default formatted date when no arguments are provided', () => {
 		const result = formatDateTime();
@@ -41,5 +41,29 @@ describe('FormatDateTime utility function', () => {
 			useUTC: true,
 		});
 		expect(result4).toBe('8 08 8 08 38 38 16 16 79 79 079 Mon Monday 9 09 12 12 Dec December 24 2024 AM');
+
+		const result5 = formatDateTime({ date, format: 'full', useUTC: true });
+		expect(result5).toBe(date.toString());
+
+		const result6 = formatDateTime({ date, format: 'UTC' });
+		expect(result6).toBe(date.toUTCString());
+
+		const result7 = formatDateTime({ date, format: 'ISO' });
+		expect(result7).toBe(date.toISOString());
+
+		const result8 = formatDateTime({ date, format: 'dateString' });
+		expect(result8).toBe(date.toDateString());
+
+		const result9 = formatDateTime({ date, format: 'timeString' });
+		expect(result9).toBe(date.toTimeString());
+
+		const result10 = formatDateTime({ date, format: 'locale' });
+		expect(result10).toBe(date.toLocaleString());
+
+		const result11 = formatDateTime({ date, format: 'localeDate' });
+		expect(result11).toBe(date.toLocaleDateString());
+
+		const result12 = formatDateTime({ date, format: 'localeTime' });
+		expect(result12).toBe(date.toLocaleTimeString());
 	});
 });

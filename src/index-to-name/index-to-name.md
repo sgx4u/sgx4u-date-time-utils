@@ -27,13 +27,13 @@ indexToMonth(index, format): string;
 
 ### Props
 
--   `index` The index of day/month. `Required`
--   `format` Use short/long name. `Default` - long. `Optional`
+-   `index` The index of day/month, `type`: number
+-   `format` Use short/long name, `type`: 'short' | 'long', `default` - long, `optional`
 
 ### Example
 
--   `indexToDay` - index: 0, `Result`: Sunday, ShortName: Sun
--   `indexToMonth` - index: 0, `Result`: January, ShortName: Jan
+-   `indexToDay` - index: 0, `result`: Sunday, ShortName: Sun
+-   `indexToMonth` - index: 0, `result`: January, ShortName: Jan
 
 ### Caution
 

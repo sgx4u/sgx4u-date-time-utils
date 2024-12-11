@@ -2,7 +2,7 @@ import { describe, expect, test } from '@jest/globals';
 
 import { indexToDay, indexToMonth } from './index-to-name';
 
-describe('FormatDateTime utility function', () => {
+describe('indexToDay/indexToMonth utility function', () => {
 	// Test 1: Check if the day/month name is returned correctly
 	test('Should return the day/month name', () => {
 		const dayName = indexToDay(0);
