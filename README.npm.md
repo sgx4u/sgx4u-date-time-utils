@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="./logo.svg" width="75px" align="center" alt="SGX4U" />
+	<img src="https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/logo.svg?raw=true" width="75px" align="center" alt="SGX4U" />
 	<h2 align="center">🌟 @sgx4u/date-time-utils 🌟</h2>
 	<p align="center">A date-time utility library</p>
 </p>
@@ -32,10 +32,10 @@
 
 > ⚡Links to the documentations.
 
--   [`formatDateTime`](./src/format-date-time/format-date-time.md) &dash; Format a date-time
--   [`dateTimeDifference`](./src/date-time-difference/date-time-difference.md) &dash; Calculate the difference between two date/time.
--   [`indexToDay` `indexToMonth`](./src/index-to-name/index-to-name.md) &dash; Get the day/month name from index
--   [`addSubtractTime`](./src/add-subtract-time/add-subtract-time.md) &dash; Add/Subtract time value from a given time and get the new value in different formats
+-   [`formatDateTime`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/format-date-time/format-date-time.md) &dash; Format a date-time
+-   [`dateTimeDifference`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/date-time-difference/date-time-difference.md) &dash; Calculate the difference between two date/time.
+-   [`indexToDay` `indexToMonth`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/index-to-name/index-to-name.md) &dash; Get the day/month name from index
+-   [`addSubtractTime`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/add-subtract-time/add-subtract-time.md) &dash; Add/Subtract time value from a given time and get the new value in different formats
 
 <br/>
 

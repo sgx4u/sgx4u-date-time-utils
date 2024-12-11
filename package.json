@@ -11,6 +11,7 @@
 		"sgx4u"
 	],
 	"homepage": "https://github.com/sgx4u/sgx4u-date-time-utils",
+	"readme": "./README.npm.md",
 	"license": "MIT",
 	"author": "Subhajit Ghosh",
 	"repository": {
@@ -50,9 +51,9 @@
 		"dist/",
 		"CHANGELOG.md",
 		"LICENSE",
-		"logo.png",
+		"logo.svg",
 		"package.json",
-		"README.md",
+		"README.npm.md",
 		"SECURITY.md",
 		"SUPPORT.md"
 	]
