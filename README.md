@@ -33,8 +33,9 @@
 > ⚡Links to the documentations.
 
 -   [`formatDateTime`](./src/format-date-time/format-date-time.md) &dash; Format a date-time
--   [`dateTimeDifference`](./src/date-time-difference/date-time-difference.md) &dash; Get difference between 2 date/time
--   [`indexToDay` `indexToMonth`](./src/index-to-name/index-to-name.md) &dash; Get day from day/month from index
+-   [`dateTimeDifference`](./src/date-time-difference/date-time-difference.md) &dash; Calculate the difference between two date/time.
+-   [`indexToDay` `indexToMonth`](./src/index-to-name/index-to-name.md) &dash; Get the day/month name from index
+-   [`addSubtractTime`](./src/add-subtract-time/add-subtract-time.md) &dash; Add/Subtract time value from a given time and get the new value in different formats
 
 <br/>
 

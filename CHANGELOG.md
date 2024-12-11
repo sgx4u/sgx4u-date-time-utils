@@ -4,8 +4,10 @@
 
 ### Minor Release
 
--   Added function - `dateTimeDifference`, `indexToDay`, `indexToMonth`
+-   Added function - `dateTimeDifference`, `indexToDay`, `indexToMonth`, `addSubtractTime`
+-   Added features - `formatDateTime`. New format types: 'UTC', 'ISO', 'dateString', 'timeString', 'locale', 'localeDate', 'localeTime'
 -   Optimized function - `formatDateTime`. Performance optimizations
+-   Updated documentation
 
 ## 2.0.0
 

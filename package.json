@@ -50,8 +50,10 @@
 		"dist/",
 		"CHANGELOG.md",
 		"LICENSE",
-		"logo.svg",
+		"logo.png",
 		"package.json",
-		"README.md"
+		"README.md",
+		"SECURITY.md",
+		"SUPPORT.md"
 	]
 }
