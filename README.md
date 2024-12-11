@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="./logo.png" width="100px" align="center" alt="SGX4U" />
+	<img src="https://github.com/sgx4u/sgx4u-date-time-utils/blob/develop/logo.svg?raw=true" width="75px" align="center" alt="SGX4U" />
 	<h2 align="center">🌟 @sgx4u/date-time-utils 🌟</h2>
 	<p align="center">A date-time utility library</p>
 </p>
