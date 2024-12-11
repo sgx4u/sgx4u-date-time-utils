@@ -123,16 +123,18 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 			return 'Same Time' as DateTimeDifferenceReturnType<T>;
 		}
 
-		const result = `
-			${year > 0 ? `${year * multiplyValue}year ` : ''}
-			${month > 0 ? `${month * multiplyValue}month ` : ''}
-			${day > 0 ? `${day * multiplyValue}day ` : ''}
-			${hour > 0 ? `${hour * multiplyValue}hour ` : ''}
-			${minute > 0 ? `${minute * multiplyValue}minute ` : ''}
-			${second > 0 ? `${second * multiplyValue}second ` : ''}
-			${millisecond > 0 ? `${millisecond * multiplyValue}millisecond` : ''}
-		`;
-		return result.trim() as DateTimeDifferenceReturnType<T>;
+		const yearValue = year > 0 ? `${year * multiplyValue}year ` : '';
+		const monthValue = month > 0 ? `${month * multiplyValue}month ` : '';
+		const dayValue = day > 0 ? `${day * multiplyValue}day ` : '';
+		const hourValue = hour > 0 ? `${hour * multiplyValue}hour ` : '';
+		const minuteValue = minute > 0 ? `${minute * multiplyValue}minute ` : '';
+		const secondValue = second > 0 ? `${second * multiplyValue}second ` : '';
+		const millisecondValue = millisecond > 0 ? `${millisecond * multiplyValue}millisecond` : '';
+
+		const result =
+			`${yearValue}${monthValue}${dayValue}${hourValue}${minuteValue}${secondValue}${millisecondValue}`.trim();
+
+		return result as DateTimeDifferenceReturnType<T>;
 	}
 
 	if (format === 'full-short-unit') {
@@ -143,16 +145,18 @@ export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 			return 'Same Time' as DateTimeDifferenceReturnType<T>;
 		}
 
-		const result = `
-			${year > 0 ? `${year * multiplyValue}yr ` : ''}
-			${month > 0 ? `${month * multiplyValue}mo ` : ''}
-			${day > 0 ? `${day * multiplyValue}day ` : ''}
-			${hour > 0 ? `${hour * multiplyValue}hr ` : ''}
-			${minute > 0 ? `${minute * multiplyValue}min ` : ''}
-			${second > 0 ? `${second * multiplyValue}sec ` : ''}
-			${millisecond > 0 ? `${millisecond * multiplyValue}msec` : ''}
-		`;
-		return result.trim() as DateTimeDifferenceReturnType<T>;
+		const yearValue = year > 0 ? `${year * multiplyValue}yr ` : '';
+		const monthValue = month > 0 ? `${month * multiplyValue}mo ` : '';
+		const dayValue = day > 0 ? `${day * multiplyValue}day ` : '';
+		const hourValue = hour > 0 ? `${hour * multiplyValue}hr ` : '';
+		const minuteValue = minute > 0 ? `${minute * multiplyValue}min ` : '';
+		const secondValue = second > 0 ? `${second * multiplyValue}sec ` : '';
+		const millisecondValue = millisecond > 0 ? `${millisecond * multiplyValue}msec` : '';
+
+		const result =
+			`${yearValue}${monthValue}${dayValue}${hourValue}${minuteValue}${secondValue}${millisecondValue}`.trim();
+
+		return result as DateTimeDifferenceReturnType<T>;
 	}
 
 	if (format === 'object') {
