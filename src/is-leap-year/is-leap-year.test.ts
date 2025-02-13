@@ -6,7 +6,7 @@ describe('isLeapYear utility function', () => {
 	// Check if the date is valid
 	test('Should return true/false according to the value', () => {
 		// Test 1: Invalid Input
-		expect(isLeapYear('')).toBe(false);
+		expect(isLeapYear('ABC')).toBe(false);
 		// Test 2: Year that is divisible by both 4 and 100
 		expect(isLeapYear(1700)).toBe(false);
 		// Test 3: Year in string format

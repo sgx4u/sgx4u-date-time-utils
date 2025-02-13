@@ -6,6 +6,6 @@
  */
 export const isLeapYear = (year?: number | string): boolean => {
 	const value = Number(typeof year === 'undefined' ? new Date().getFullYear() : year);
-	if (isNaN(value)) return false;
+	if (isNaN(value) || value < 0) return false;
 	return (value % 4 === 0 && value % 100 !== 0) || value % 400 === 0;
 };
