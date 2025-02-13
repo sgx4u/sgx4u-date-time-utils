@@ -12,10 +12,10 @@ export function dateTimeDifference(): string;
  * @function
  * @description Calculate the difference between two dates.
  * @param {Object} props { timeFrom, timeTo, format }
- * @property timeFrom - The starting date/time, type: unknown, default: new Date(), optional
- * @property timeTo - The ending date/time, type: unknown, default: new Date(), optional
- * @property format - The format of the difference, type: 'millisecond' | 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year' | 'full' | 'full-short-unit' | 'object' | 'object-total', default: 'full', optional
- * @returns { string | number | object } The difference, type: string | number | object
+ * @property timeFrom - The starting date/time; type: unknown; default: new Date(); optional
+ * @property timeTo - The ending date/time; type: unknown; default: new Date(); optional
+ * @property format - The format of the difference; type: 'millisecond' | 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year' | 'full' | 'full-short-unit' | 'object' | 'object-total'; default: 'full'; optional
+ * @returns { string | number | object } The difference; type: string | number | object
  */
 export function dateTimeDifference<T extends DateTimeDifferenceFormatType>(
 	props: DateTimeDifferencePropsType<T>,

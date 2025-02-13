@@ -6,11 +6,11 @@ import { formatDateTime } from '../format-date-time/format-date-time';
  * @function
  * @description Add/Subtract time value from a given time and get the new value in different formats.
  * @param {Object} props { date, value, type, format }
- * @property date - The date to format, type: unknown, default: new Date(), optional
- * @property value - The value to add/subtract, type: number
- * @property type - The type of value that is provided to be added/subtracted, type: 'year' | 'month' | 'day' | 'hour' | 'min' | 'sec' | 'msec'
- * @property format - The format of the date, type: string, default: 'full', optional
- * @returns { string } The formatted date, type: string
+ * @property date - The date to format; type: unknown; default: new Date(); optional
+ * @property value - The value to add/subtract; type: number
+ * @property type - The type of value that is provided to be added/subtracted; type: 'year' | 'month' | 'day' | 'hour' | 'min' | 'sec' | 'msec'
+ * @property format - The format of the date; type: string; default: 'full'; optional
+ * @returns { string } The formatted date; type: string
  */
 export const addSubtractTime = (props: AddSubtractTimePropsType): string => {
 	const { date, value, type, format = 'full', useUTC } = props;

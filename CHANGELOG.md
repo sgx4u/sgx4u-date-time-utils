@@ -1,5 +1,17 @@
 # @sgx4u/date-time-utils - Changelog
 
+## 2.2.0
+
+### Minor Release
+
+-   Added function - `isValidDate`, `isLeapYear`
+
+## 2.1.1
+
+### Bug Fix
+
+-   Bug fix in dateTimeDifference where formats "full" and "full-short-unit" were showing extra spaces
+
 ## 2.1.0
 
 ### Minor Release

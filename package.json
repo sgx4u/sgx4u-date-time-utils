@@ -1,6 +1,6 @@
 {
 	"name": "@sgx4u/date-time-utils",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"private": false,
 	"description": "A date-time utility library",
 	"keywords": [
@@ -11,7 +11,7 @@
 		"sgx4u"
 	],
 	"homepage": "https://github.com/sgx4u/sgx4u-date-time-utils",
-	"readme": "./README.npm.md",
+	"readme": "./README.md",
 	"license": "MIT",
 	"author": "Subhajit Ghosh",
 	"repository": {
@@ -53,7 +53,7 @@
 		"LICENSE",
 		"logo.svg",
 		"package.json",
-		"README.npm.md",
+		"README.md",
 		"SECURITY.md",
 		"SUPPORT.md"
 	]
