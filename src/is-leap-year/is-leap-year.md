@@ -26,7 +26,6 @@ isLeapYear(year): boolean;
 ### Example
 
 -   `isLeapYear()` - If current year is leap-year then returns true otherwise false
--   `isLeapYear('')` - false
 -   `isLeapYear(1700)` - false
 -   `isLeapYear(-2000)` - false
 -   `isLeapYear('2024')` - true
