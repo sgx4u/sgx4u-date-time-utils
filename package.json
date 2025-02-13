@@ -1,6 +1,6 @@
 {
 	"name": "@sgx4u/date-time-utils",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"private": false,
 	"description": "A date-time utility library",
 	"keywords": [

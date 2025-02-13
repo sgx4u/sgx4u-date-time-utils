@@ -64,7 +64,7 @@ export const isValidDate = (date: unknown, format?: string): boolean => {
 		console.error(error);
 	}
 
-	if (!format || typeof date !== 'string') return isValid;
+	if (isValid || !format || typeof date !== 'string') return isValid;
 
 	// Check if the format and date separators are the same.
 	if (!checkIfAllSeparatorsAreValid(date, format)) return false;

@@ -1,5 +1,18 @@
 # @sgx4u/date-time-utils - Changelog
 
+## 2.3.0
+
+### Minor Release
+
+-   Added function - `getNextOccurrence`
+-   Bug fix in isValidDate where it should stop further checks when valid date is already confirmed
+
+## 2.2.1
+
+### Documentation
+
+-   Updated documentation
+
 ## 2.2.0
 
 ### Minor Release

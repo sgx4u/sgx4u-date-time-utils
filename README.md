@@ -38,6 +38,7 @@
 -   [`addSubtractTime`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/add-subtract-time/add-subtract-time.md) &dash; Add/Subtract time value from a given time and get the new value in different formats
 -   [`isValidDate`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/is-valid-date/is-valid-date.md) &dash; Check if the given date is valid or not
 -   [`isLeapYear`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/is-leap-year/is-leap-year.md) &dash; Check if the given year is a leap year
+-   [`getNextOccurrence`](https://github.com/sgx4u/sgx4u-date-time-utils/blob/production/src/get-next-occurrence/get-next-occurrence.md) &dash; Find the next occurrence of the given day
 
 <br/>
 
